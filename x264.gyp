@@ -1,7 +1,7 @@
 {
 	'variables':{
-		'library' : 'static_library',
-		#'library' : 'shared_library',
+		#'library' : 'static_library',
+		'library' : 'shared_library',
 		'high_bit_depth' : '0',
 		
 		'yasm_output_path': '<(INTERMEDIATE_DIR)',
