@@ -17,7 +17,13 @@
 			},
 		},
 		'configurations':{
-			'Debug':{},
+			'Debug':{
+				'msvs_settings':{
+					'VCLinkerTool': {
+						'GenerateDebugInformation': 'true',
+					},
+				},
+			},
 			'Release':{},
 		},
 		'conditions': [
@@ -215,7 +221,7 @@
 				}],
 				['target_arch == "ia32"',{
 					'defines':[
-						#'ARCH_X86=1'
+						'ARCH_X86=1'
 					],
 					'sources':[
 						'x264_src/common/x86/dct-32.asm',

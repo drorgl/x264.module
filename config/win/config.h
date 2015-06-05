@@ -1,7 +1,7 @@
 ////#define ARCH_ARM (1)
 ////#define SYS_LINUX (1)
 //
-//#define STACK_ALIGNMENT 16
+#define STACK_ALIGNMENT 32
 //
 //#define ARCH_X86 (1)
 //
@@ -17,7 +17,6 @@
 //#define SYS_WINDOWS (1)
 //#define HAVE_WIN32THREAD (1)
 //#define HAVE_THREAD (1)
-////#define HAVE_LOG2F 
 ////#define HAVE_SWSCALE 
 ////#define HAVE_LAVF 
 ////#define HAVE_FFMS 
@@ -31,6 +30,7 @@
 ////#define HAVE_THP 
 ////#define HAVE_LSMASH
 
+#define HAVE_LOG2F 1
 
 
 #define SYS_WINDOWS 1
@@ -40,7 +40,7 @@
 #define HAVE_VECTOREXT 1
 #define HAVE_INTERLACED 1
 #define HAVE_OPENCL 0
-#define HAVE_MALLOC_H 0
+#define HAVE_MALLOC_H 1
 #define HAVE_ALTIVEC 0
 #define HAVE_ALTIVEC_H 0
 #define HAVE_ARMV6 0
@@ -73,9 +73,9 @@
 //#define X264_BIT_DEPTH 8 //or 10
 //#define HIGH_BIT_DEPTH 0 //or 1
 
-//#define X264_HAVE_GPL 0
-#define HAVE_GPL 0
+#define HAVE_GPL 1
 
-#define HAVE_MMX 1
+//SSE2 throws access violation in VS2013, for now its disabled
+#define HAVE_MMX 0
 
 #define HAVE_STRING_H 1
