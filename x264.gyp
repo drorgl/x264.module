@@ -66,20 +66,22 @@
 		  ['OS != "win"', {
 			'cflags':[
 				'-std=gnu99',
+				'-fPIC',
+				'-DPIC',
+				'-Wno-maybe-uninitialized',
+				'-fomit-frame-pointer',
+				'-fno-tree-vectorize',
+				'-mcmodel=large',
+				
+			],
+			'ldflags':[
+				'-Wl,-Bsymbolic',
 			],
 			
 			'conditions': [
-				['library == "shared_library"',{
-					'cflags':[
-						'-fPIC',
-						'-Wno-maybe-uninitialized',
-						 '-fomit-frame-pointer',
-						 '-fno-tree-vectorize',
-					],
-					'ldflags':[
-						'-Wl,-Bsymbolic',
-					],
-				}],
+				#['library == "shared_library"',{
+				#	
+				#}],
 			  ['OS=="solaris"', {
 				'cflags': [ '-pthreads' ],
 			  }],
@@ -159,21 +161,35 @@
 			],
 			
 			'conditions':[
-				['OS == "linux"',{
-					'sources':[
-						
+				['OS == "linux" and library == "static_library"',{
+					'cflags':[
+						'-fvisibility=hidden',
 					],
 				}],
+				
+				['target_arch == "ia32"',{
+					'defines':[
+						'STACK_ALIGNMENT=4',
+					],
+				}],
+				['target_arch == "x64"',{
+					'defines':[
+						'STACK_ALIGNMENT=16',
+					],
+				}],
+				
 				['target_arch in "ia32 x64"',{
 					
 					'includes':[
 						'yasm_compile.gypi',
 					],
 					'variables':{
+						
 						'yasm_flags':[
+							'-DPIC',
 							'-DHIGH_BIT_DEPTH=<(high_bit_depth)',
 							'-DBIT_DEPTH=8',
-							'-DSTACK_ALIGNMENT=32',
+							
 						],
 						'conditions':[
 							['library == "shared_library"',{
@@ -181,6 +197,17 @@
 									'-DPIC',
 								],
 							}],
+							['target_arch == "ia32"',{
+								'yasm_flags':[
+									'-DSTACK_ALIGNMENT=4',
+								],
+							}],
+							['target_arch == "x64"',{
+								'yasm_flags':[
+									'-DSTACK_ALIGNMENT=16',
+								],
+							}],
+							
 						],
 					},
 					'sources':[
