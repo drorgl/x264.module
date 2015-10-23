@@ -8,7 +8,7 @@
 //#define ARCH_X86 (1)
 //#define ARCH_X86_64 1
 
-#define HAVE_AVS 1
+#define HAVE_AVS 0
 #define HAVE_AS_FUNC 0
 #define HAVE_INTEL_DISPATCHER 0
 #define HAVE_VECTOREXT 1

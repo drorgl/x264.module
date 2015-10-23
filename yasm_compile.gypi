@@ -74,7 +74,7 @@
 	  		'yasm_flags' : [
 	  			'-Xvc',
 	  			'-s',
-	  			'-g', 'cv8',
+	  			'-gcv8',
 	  			'-DPREFIX',
 	  			'--oformat=win32',
 	  		],
@@ -84,8 +84,8 @@
 	  		'yasm_flags' : [
 	  			'-Xvc',
 	  			'-s',
-	  			'-g', 'cv8',
-	  			'-DPREFIX',
+	  			#'-gcv8',
+	  			#'-DPREFIX',
 	  			'--oformat=win64',
 	  		],
 	  	}

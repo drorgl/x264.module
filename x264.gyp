@@ -18,13 +18,43 @@
 		},
 		'configurations':{
 			'Debug':{
-				'msvs_settings':{
-					'VCLinkerTool': {
-						'GenerateDebugInformation': 'true',
-					},
-				},
+				'conditions': [
+				  ['target_arch=="x64"', {
+					'msvs_configuration_platform': 'x64',
+				  }],
+				],
+				'defines':[
+					'DEBUG',
+				],
+				'msvs_settings': {				
+					'VCLinkerTool' : {
+						'GenerateDebugInformation' : 'true',
+						'conditions':[
+							['target_arch=="x64"', {
+								'TargetMachine' : 17 # /MACHINE:X64
+							}],
+						],
+						
+					}
+				}
 			},
-			'Release':{},
+			'Release':{
+				'conditions': [
+				  ['target_arch=="x64"', {
+					'msvs_configuration_platform': 'x64',
+				  }],
+				],
+				'msvs_settings': {				
+					'VCLinkerTool' : {
+						'conditions':[
+							['target_arch=="x64"', {
+								'TargetMachine' : 17 # /MACHINE:X64
+							}],
+						],
+						
+					}
+				}
+			},
 		},
 		'conditions': [
 			['OS=="linux" and target_arch=="ia32"',{
@@ -71,7 +101,7 @@
 				'-Wno-maybe-uninitialized',
 				'-fomit-frame-pointer',
 				'-fno-tree-vectorize',
-				'-mcmodel=large',
+				#'-mcmodel=large',
 				
 			],
 			'ldflags':[
@@ -277,8 +307,27 @@
 
 				}],
 				
+				['target_arch == "mips"',{
+					'sources':[
+						'x264_src/common/mips/dct-c.c',
+						'x264_src/common/mips/dct.h',
+						'x264_src/common/mips/deblock-c.c',
+						'x264_src/common/mips/macros.h',
+						'x264_src/common/mips/mc-c.c',
+						'x264_src/common/mips/mc.h',
+						'x264_src/common/mips/pixel-c.c',
+						'x264_src/common/mips/pixel.h',
+						'x264_src/common/mips/predict-c.c',
+						'x264_src/common/mips/predict.h',
+						'x264_src/common/mips/quant-c.c',
+						'x264_src/common/mips/quant.h',
+					],
+
+				}],
+				
 				['target_arch == "arm"',{
 					'sources':[
+						'x264_src/common/arm/bitstream-a.S',
 						'x264_src/common/arm/mc-c.c',
 						'x264_src/common/arm/predict-c.c',
 						'x264_src/common/arm/cpu-a.S',
