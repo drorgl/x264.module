@@ -10,7 +10,7 @@ x264_param_default_preset
 x264_param_apply_fastfirstpass
 x264_param_apply_profile
 x264_picture_init
-x264_encoder_open_146
+x264_encoder_open_148
 x264_encoder_parameters
 x264_encoder_headers
 x264_encoder_encode
