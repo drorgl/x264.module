@@ -7,9 +7,9 @@
 //#define HAVE_ALTIVEC 
 //#define HAVE_ALTIVEC_H 
 //#define HAVE_MMX 
-//#define HAVE_ARMV6 
-//#define HAVE_ARMV6T2 
-//#define HAVE_NEON 
+#define HAVE_ARMV6 1
+#define HAVE_ARMV6T2 1
+#define HAVE_NEON 1
 //#define HAVE_BEOSTHREAD 
 #define HAVE_POSIXTHREAD (1)
 //#define HAVE_WIN32THREAD 
