@@ -3,7 +3,7 @@
 		#'library' : 'static_library',
 		'library' : 'shared_library',
 		'high_bit_depth' : '0',
-		
+		'use_system_yasm%' : "<!(node -e \"try{var x = require('child_process').spawnSync('yasm',[]);if (x.error){console.log(0);}else{console.log(1);}}catch(e){console.log(0)}\")",
 		'yasm_output_path': '<(INTERMEDIATE_DIR)',
 	},
 	'target_defaults': {
