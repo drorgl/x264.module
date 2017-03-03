@@ -143,12 +143,14 @@
 			
 			'include_dirs':[
 				'x264_src',
+				'config/<(OS)/<(target_arch)',
 				'config/<(OS)/',
 				'config',
 			],
 			'direct_dependent_settings': {
 				'include_dirs': [
 					'x264_src',
+					'config/<(OS)/<(target_arch)',
 					'config/<(OS)/',
 					'config',
 				],
