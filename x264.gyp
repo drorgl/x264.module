@@ -89,8 +89,15 @@
 				 },
 				 
 			}],
-			
-			
+					
+		  ['OS in "android linux" and target_arch=="arm"',{
+			'cflags':[
+                           '-mfloat-abi=hard',
+                           ' -mfpu=neon',
+                           ' -marm',
+                           ' -march=armv7-a',
+                        ]
+		  }],	
 			
 			
 		  ['OS != "win"', {
