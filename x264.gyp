@@ -113,6 +113,7 @@
 			],
 			'ldflags':[
 				'-Wl,-Bsymbolic',
+				'-Wl,-rpath=\$$ORIGIN',
 			],
 			
 			'conditions': [
