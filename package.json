@@ -1,0 +1,29 @@
+{
+  "name": "x264.module",
+  "version": "0.146.2538",
+  "description": "x264 module wrapper",
+  "main": "include_dirs.js",
+  "scripts": {
+    "preinstall": "git submodule init && git submodule update || true",
+    "test": "node-gyp configure build",
+    "pack": "nnbu-pack -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drorgl/x264.module.git"
+  },
+  "keywords": [
+    "x264",
+    "c++"
+  ],
+  "gypfile": false,
+  "bugs": {
+    "url": "https://github.com/drorgl/x264.module/issues"
+  },
+  "homepage": "https://github.com/drorgl/x264.module#readme.md",
+  "devDependencies": {},
+  "dependencies": {
+    "node-gyp": "drorgl/node-gyp",
+    "node-native-build-utilities": "drorgl/node-native-build-utilities"
+  }
+}
